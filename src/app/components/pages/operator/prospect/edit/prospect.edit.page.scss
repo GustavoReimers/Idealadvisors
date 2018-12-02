@@ -1,0 +1,27 @@
+.phone-row {
+  display: flex;
+  align-items: center;
+  input {
+    width: auto;
+  }
+  input:nth-child(1) {
+    width: 40px;
+  }
+  input:nth-child(2) {
+    width: 60px;
+  }
+}
+page-prospect-edit {
+  .form-control {
+    width: 100%;
+  }
+  select.form-control:not([size]):not([multiple]) {
+    height: calc(1.4rem + 2px);
+  }
+  .content a {
+    text-decoration: none;
+  }
+  p {
+    font-size: 1rem;
+  }
+}

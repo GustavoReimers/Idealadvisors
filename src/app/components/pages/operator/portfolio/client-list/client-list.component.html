@@ -1,0 +1,74 @@
+<div class="content">
+    <h4>Clients</h4>
+    <table class="table table-bordered">
+        <thead class="table-active">
+            <tr>
+                <th rowspan="2">Client Code</th>
+                <th rowspan="2">Portfolio View</th>
+                <th colspan="7" style="border-bottom:1px solid #cbcbcb;">Transactions</th>
+                <th colspan="6" style="border-bottom:1px solid #cbcbcb;">Orders</th>
+            </tr>
+            <tr>
+                <th>Realized</th>
+                <th>Pending</th>
+                <th colspan="5">New</th>
+                <th colspan="5">New</th>
+                <th>Waiting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of clientList">
+                <td>{{item.code}}</td>
+                <td>
+                    <a [routerLink]="['/operator/portfolio/show', 'by-client', item.id]">Show</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/portfolio/all-transactions/' + item.id]">List</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/portfolio/pending-transactions/' + item.id]">List</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/new/cash/' + item.id]" class="text-uppercase">Cash</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/new/fx/' + item.id]" class="text-uppercase">fx</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/new/deposit/' + item.id]" class="text-uppercase">deposit</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/new/loan/' + item.id]" class="text-uppercase">loan</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/new/security/' + item.id]" class="text-uppercase">security</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/order/new/cash/' + item.id]" class="text-uppercase">Cash</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/order/new/fx/' + item.id]" class="text-uppercase">fx</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/order/new/deposit/' + item.id]" class="text-uppercase">deposit</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/order/new/loan/' + item.id]" class="text-uppercase">loan</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/order/new/security/' + item.id]" class="text-uppercase">security</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/operator/portfolio/waiting-orders/' + item.id]">List</a>
+                </td>
+            </tr>
+
+            <tr *ngIf="clientList.length == 0">
+                <td colspan="15" class="text-center">
+                    <i class="fa fa-spinner fa-spin fa-fw fa-2x"></i>
+                </td>
+            </tr>
+            <tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<!-- Content  -->
+<div class="content">
+  <nav class="breadcrumb">
+    <a class="breadcrumb-item" [routerLink]="['']">Home</a>
+    <a class="breadcrumb-item" [routerLink]="['/app/messages/inbox']">Secure Messaging</a>
+    <span class="breadcrumb-item active">Message Details</span>
+  </nav>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+      <h3>Message Details</h3>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+      <ul class="nav justify-content-end mt-0">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/app/messages/compose']"><i class="fa fa-pencil" aria-hidden="true">&nbsp;</i>Compose New Message</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/app/messages/inbox']"><i class="fa fa-inbox" aria-hidden="true"></i>&nbsp;Inbox</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/app/messages/outbox']"><i class="fa fa-share-square-o" aria-hidden="true"></i>&nbsp;Sent Message</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/app/messages/trash']"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Trash</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="message-detail col-12 col-sm-12 col-md-12 col-lg-12" *ngIf="detailData">
+    <p><b>From</b> : {{ detailData.sender.user.first_name+' '+ detailData.sender.user.last_name}}</p>
+    <p><b>Subject</b> : {{detailData.subject}}</p>
+    <p><b>Date</b> : {{detailData.created}}</p>
+    <p><b>To</b> : {{detailData.recipient.user.first_name+'  '+detailData.recipient.user.last_name}}</p>
+    <br/>
+    <p>{{detailData.body}}</p>
+    <br/>
+    <a class=" btn_detail " *ngIf="detailData.reply_to != 10 " [routerLink]="['/app/messages/reply/' + detailData.id + '/']"><i class="fa fa-arrow-left text-success" aria-hidden="true">&nbsp;&nbsp;</i>Reply</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class=" btn_detail " *ngIf="detailData.reply_to != 10 " (click)="deleteMessage(detailData.id)">Delete&nbsp;&nbsp;<i class="fa fa-minus-circle text-danger" aria-hidden="true"></i></a>
+  </div>
+</div>
+

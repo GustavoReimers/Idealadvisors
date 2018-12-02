@@ -1,0 +1,139 @@
+<!-- Content  -->
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h3>Contacts</h3>
+      <p><a [routerLink]="['/app/contact/create']">Create New Contact</a>, <a [routerLink]="['/app/contact/list']">list contacts</a> or <a [routerLink]="['/app/contact/send-mail']">Send mail</a> </p>
+      <h4>Send Mail</h4>
+      <form class="form-send-mail">
+        <table class="table table-responsive table-bordered">
+
+          <tbody>
+          <tr>
+            <td><label for="emailAdds">Send From:</label></td>
+            <td><div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="opt1">personal
+              </label>
+            </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="opt2">post@ideal.sg
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="opt3">research@ideal.sg
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="subj">Subject:</label></td>
+            <td><input type="text" class="form-control" id="subj" placeholder=""></td>
+          </tr>
+          <tr>
+            <td><label for="textContent">Text Content:</label></td>
+            <td id="textArea">
+              <textarea class="form-control" id="textContent" rows="8"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="atttachment">Attachment:</label></td>
+            <td>
+              <input type="file" class="form-control" id="attachment" placeholder=""/>
+            </td>
+          </tr>
+          <tr>
+            <td><label>Send to English recipients:</label></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td><label>Send to german recipients:</label></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td><label>Send to turkish recipients:</label></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="emailAdds">Mail type:</label>
+            </td>
+            <td>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios1" value="opt1">research_third_parties
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios2" value="opt2">research_ideal
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios3" value="opt3">greetings
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios4" value="opt4">general
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios5" value="opt5">recommendations_bond
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios6" value="opt6">recommendations_equities
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios7" value="opt7">recommendations_fx
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios8" value="opt8">recommendations_commodities
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios9" value="opt9">recommendations_real_estate
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optRadios" id="optRadios10" value="opt10">recommendations_other
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send to myIdeal:</label>
+            </td>
+            <td>
+              <input type="checkbox">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send to personal:</label>
+            </td>
+            <td>
+              <input type="checkbox">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

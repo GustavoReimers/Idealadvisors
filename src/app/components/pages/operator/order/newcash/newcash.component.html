@@ -1,0 +1,212 @@
+<div class="content">
+    <h4>New <span class="text-uppercase">Cash</span> Transaction</h4>
+    <form class="pt-2" [formGroup]="form">
+        <div class="row">
+            <div class="col-12">
+                <h6>Please fill in Order Details</h6>
+                <table class="table table-bordered">
+                    <thead class="table-active">
+                    <tr>
+                        <th style="width: 10%">Instrument Type</th>
+                        <th style="width: 15%">Received At</th>
+                        <th style="width: 15%">Channel</th>
+                        <th>Additional Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>CASH</td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'received_at')">
+                            <input type="date" formControlName="received_at" class="form-control">
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'channel')">
+                            <select class="form-control" formControlName="channel">
+                                <option value="TELEPHONE">Telephone</option>
+                                <option value="FAX">Fax</option>
+                                <option value="EMAIL">E-Mail</option>
+                            </select>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'additional_note')">
+                            <textarea class="form-control" rows="8" formControlName="additional_note"></textarea>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8">
+                <h6>Details</h6>
+                <table class="table table-bordered">
+                    <thead class="table-active">
+                    <tr>
+                        <th>Type</th>
+                        <th>TXN CRY</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="is_out" id="outflow"
+                                   value="1" checked>Outflow
+                        </label><label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="is_out" id="outflow"
+                                   value="0">Inflow
+                        </label>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'txn_currency')">
+                            <select class="form-control" formControlName="txn_currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.code}}</option>
+                            </select>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'amount')">
+                            <input type="number" formControlName="amount" class="form-control">
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+                <table class="table table-bordered">
+                    <thead class="table-active">
+                    <tr>
+                        <th colspan="2">Fixed Comission</th>
+                        <th colspan="2">Ticket Fee</th>
+                        <th colspan="2">3rd Party Fee</th>
+                        <th colspan="2">Misc. Fee</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-uppercase" [ngClass]="validate.displayFieldCss(form, 'fix_commission_currency')">
+                            <select class="form-control" formControlName="fix_commission_currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.code}}</option>
+                            </select>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'fix_commission_amount')">
+                            <input type="number" formControlName="fix_commission_amount" class="form-control">
+                        </td>
+
+                        <td [ngClass]="validate.displayFieldCss(form, 'ticket_fee_currency')">
+                            <select class="form-control" formControlName="ticket_fee_currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.code}}</option>
+                            </select>
+                        </td>
+                        <td class="text-uppercase" [ngClass]="validate.displayFieldCss(form, 'ticket_fee_amount')">
+                            <input type="number" formControlName="ticket_fee_amount" class="form-control">
+                        </td>
+                        <td class="text-uppercase" [ngClass]="validate.displayFieldCss(form, 'third_party_fee_currency')">
+                            <select class="form-control" formControlName="third_party_fee_currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.code}}</option>
+                            </select>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'third_party_fee_amount')">
+                            <input type="number" formControlName="third_party_fee_amount" class="form-control">
+                        </td>
+                        <td class="text-uppercase" [ngClass]="validate.displayFieldCss(form, 'misc_fee_currency')">
+                            <select class="form-control" formControlName="misc_fee_currency">
+                                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.code}}</option>
+                            </select>
+                        </td>
+                        <td [ngClass]="validate.displayFieldCss(form, 'misc_fee_amount')">
+                            <input type="number" formControlName="misc_fee_amount" class="form-control">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <h6>Description</h6>
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th class="table-active">Short</th>
+                        <td [ngClass]="validate.displayFieldCss(form, 'short_description')">
+                            <input class="form-control" type="text" formControlName="short_description">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Long</th>
+                        <td>
+                            <textarea class="form-control" rows="8" formControlName="description"></textarea>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <h6>General Information</h6>
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th class="table-active">Transaction Type</th>
+                        <td class="text-uppercase">cash</td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Status</th>
+                        <td><label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="status"
+                                   value="PENDING"
+                                   checked>Pending
+                        </label><label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="status"
+                                   value="REALIZED">Realized
+                        </label></td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Account ID</th>
+                        <td [ngClass]="validate.displayFieldCss(form, 'account')">
+                            <select class="form-control" formControlName="account">
+                                <!--<option>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+                                <option *ngFor="let item of accounts" [value]="item.id">{{item.code}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Custodian Order ID</th>
+                        <td [ngClass]="validate.displayFieldCss(form, 'custodian_order_id')">
+                            <input type="text" class="form-control" formControlName="custodian_order_id">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Custodian TXN ID</th>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Transfer</th>
+                        <td><label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                        </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Operator ID</th>
+                        <td>TEST0</td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Related Order</th>
+                        <td></td>
+                    </tr>
+                </table>
+                <br>
+                <h6>Date/Time</h6>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="table-active">Transaction Date</th>
+                        <td [ngClass]="validate.displayFieldCss(form, 'transaction_at')">
+                            <input type="date" formControlName="transaction_at" class="form-control" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Settlement Date</th>
+                        <td [ngClass]="validate.displayFieldCss(form, 'settlement_at')">
+                            <input type="date" formControlName="settlement_at" class="form-control">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-12" id='transBtn'>
+                <button type="submit" class="btn btn-secondary" (click)="addTransaction()">Add Transaction</button>
+            </div>
+        </div>
+    </form>
+</div>

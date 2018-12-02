@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'preferred_email')">
+    <label>Preferred email</label>
+    <input type="email" class="form-control" placeholder="" name="preferred_email" formControlName="preferred_email">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'private_email_1')">
+    <label>Private email 1</label>
+    <input type="text" class="form-control" placeholder="" name="private_email_1" formControlName="private_email_1">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'private_email_2')">
+    <label>Private email 2</label>
+    <input type="text" class="form-control" placeholder="" name="private_email_2" formControlName="private_email_2">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'private_email_3')">
+    <label>Private email 3</label>
+    <input type="text" class="form-control" placeholder="" name="private_email_3" formControlName="private_email_3">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'business_email_1')">
+    <label>Business email 1</label>
+    <input type="text" class="form-control" placeholder="" name="business_email_1" formControlName="business_email_1">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'business_email_2')">
+    <label>Business email 2</label>
+    <input type="text" class="form-control" placeholder="" name="business_email_2" formControlName="business_email_2">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'business_email_3')">
+    <label>Business email 3</label>
+    <input type="text" class="form-control" placeholder="" name="business_email_3" formControlName="business_email_3">
+  </div>
+</form>

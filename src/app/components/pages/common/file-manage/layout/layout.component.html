@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="row mt-4">
+    <div class="col-12 col-md-6 col-lg-6">
+      <h3>File Management System</h3>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+      <ul class="nav justify-content-end mt-0">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/app/file-management/upload-file']"><i class="fa fa-upload" aria-hidden="true">&nbsp;</i>Upload a New File</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/app/file-management/create-title']"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create a New Title</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,194 @@
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h3>Contacts</h3>
+      <p><a [routerLink]="['/app/contact/create']">Create New Contact</a>, <a [routerLink]="['/app/contact/list']">list contacts</a> or <a [routerLink]="['/app/contact/send-mail']">Send mail</a> </p>
+      <h4 class="heading-contact-create">Create</h4>
+      <br>
+      <form  class="form-contact-create" [formGroup]="form">
+        <table class="table table-responsive table-bordered">
+          <tbody>
+          <tr>
+            <td>
+              <label for="emailAdds">Email adresses:</label>
+            </td>
+            <td id="textArea" [ngClass]="validate.displayFieldCss( form,'email_addresses' )">
+              <textarea class="form-control" id="emailAdds" rows="8" formControlName="email_addresses" ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="names">Names:</label>
+            </td>
+            <td>
+              <div class="input-group" [ngClass]="validate.displayFieldCss( form,'first_name')">
+                <input type="text" class="form-control" id="names" aria-describedby="emailHelp" placeholder="" formControlName="first_name">
+                <div class="input-group-addon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="surnames">Surname:</label>
+            </td>
+            <td [ngClass]="validate.displayFieldCss( form,'last_name')">
+              <input type="text" class="form-control" id="surnames" aria-describedby="emailHelp" placeholder="" formControlName="last_name">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="names">Email address:</label>
+            </td>
+            <td>
+              <div class="input-group" [ngClass]="validate.displayFieldCss( form,'email_address')" >
+                <input type="email" class="form-control" id="email_address" aria-describedby="emailHelp" placeholder="" formControlName="email_address">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="company">Company:</label>
+            </td>
+            <td [ngClass]="validate.displayFieldCss( form,'company')">
+              <input type="text" class="form-control" id="company" aria-describedby="emailHelp" placeholder="" formControlName="company">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password">Password:</label>
+            </td>
+            <td>
+              <div class="input-group" [ngClass]="validate.displayFieldCss( form,'password')">
+                <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="" formControlName="password">
+                <div class="input-group-addon">
+                  <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send English Mailings:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_english_mailings">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send German Mailings:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_german_mailings">
+            </td>
+          </tr>
+          <tr>
+            <td><label>Send Turkish Mailings:</label></td>
+            <td><input type="checkbox" formControlName="send_turkish_mailings"></td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send research third parties:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_research_third_parties">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send research Ideal:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_research_ideal">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send greetings:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_greetings">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send general:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_general">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation bonds:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_recommendations_bonds">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation equities:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_recommendations_equities">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation fx:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_recommendations_fx">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation commodities:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_recommendations_commodities">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation real estate:</label>
+            </td>
+            <td>
+              <input type="checkbox" formControlName="send_recommendations_real_estate">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Send recommendation other:</label>
+            </td>
+            <td>
+              <input type="checkbox">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Ideal access:</label>
+            </td>
+            <td><input type="checkbox" formControlName="send_recommendations_other">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Is active:</label>
+            </td>
+            <td>
+              <input type="checkbox">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-secondary" (click)=" updateContact() ">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+

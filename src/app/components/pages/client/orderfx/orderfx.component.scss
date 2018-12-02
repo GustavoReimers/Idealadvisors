@@ -1,0 +1,63 @@
+.content{
+    background: #fff;
+    padding:20px 20px 20px 20px;
+}
+.content h3{
+    color: #000;
+    font-weight: bold;
+}
+.btn{
+    border-radius: 0;
+    font-size: 12px;
+}
+.btn-secondary{
+    background: #eaeaea;
+    border-color: #000;
+    margin-right: 10px;
+}
+.content h4{
+    color: #000;
+    font-weight: bold;
+    padding-top: 20px;
+}
+/* Form CSS */
+form {
+    padding-top: 0;
+}
+
+form label{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+}
+form button{
+    height: 25px;
+}
+form .btn{
+    padding: 0;
+    margin-right: 0;
+}
+#orderbtn{
+    text-align: right;
+
+    button {
+        padding: 0px 5px;
+    }
+}
+.input-group-addon{
+    background: #fff;
+}
+
+.form-control {
+    width: 100%;
+    padding: 4px;
+}
+
+select.form-control {
+    height: auto!important;
+    border: 1px solid #ccc;
+}
+
+.has-error select {
+    border-color: red;
+}

@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <div class="row" *ngFor="let i of icf;">
+    <div class="col-6">
+      <div class="form-group row">
+        <label class="col-sm-4">Connection type</label>
+        <div class="col-sm-8">
+          <select class="form-control" [name]="'icf_' + i + '-connection_type'" [formControlName]="'icf_' + i + '-connection_type'">
+            <option value="" selected="selected">---------</option>
+            <ng-template [ngIf]="information.internal_connection_types">
+              <option *ngFor="let item of information.internal_connection_types" [value]="item.id">
+                {{item.name}}
+              </option>
+            </ng-template>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group row">
+        <label class=" col-sm-2">Employee</label>
+        <div class="col-sm-10">
+          <select class="form-control" [name]="'icf_' + i + '-employee'" [formControlName]="'icf_' + i + '-employee'">
+            <option value="" selected="selected">---------</option>
+            <ng-template [ngIf]="information.operators">
+              <option *ngFor="let item of information.operators" [value]="item.id">
+                {{item.name}}
+              </option>
+            </ng-template>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

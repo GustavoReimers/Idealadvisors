@@ -1,0 +1,27 @@
+<div class="content">
+  <form [formGroup]="form" class="pt-0">
+    <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'folder')">
+      <label for="title">Title:</label>
+      <select class="form-control" id="title" formControlName="folder">
+        <option value="">[Select Title]</option>
+        <option *ngFor="let item of titles" [value]="item.id">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'name')">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="" formControlName="name">
+    </div>
+    <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'file')">
+      <label for="file">Document</label>
+      <input type="file" class="form-control" id="file" placeholder="" formControlName="file" (change)="fileChangeListener($event)">
+    </div>
+    <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'description')">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" placeholder="" formControlName="description"></textarea>
+    </div>
+    <div id="orderbtn">
+      <button (click)="add()">Add &gt;&gt;</button>
+      <button (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

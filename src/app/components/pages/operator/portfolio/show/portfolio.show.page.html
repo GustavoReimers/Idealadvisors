@@ -1,0 +1,98 @@
+<div class="content">
+  <h4 class="pt-0">Portfolio View for Client: {{clientId}}</h4>
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-4"></div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <ul class="t-links">
+        <li>
+          <a [routerLink]="['./']" [queryParams]="{ T: -2 }">T-2</a>
+        </li>
+        <li>
+          <a [routerLink]="['./']" [queryParams]="{ T: -1 }">T-1</a>
+        </li>
+        <li>
+          <a [routerLink]="['./']" [queryParams]="{ T: 0 }">T 0</a>
+        </li>
+        <li>
+          <a [routerLink]="['./']" [queryParams]="{ T: 1 }">T+1</a>
+        </li>
+        <li>
+          <a [routerLink]="['./']" [queryParams]="{ T: 2 }">T+2</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href (click)="printPage($event)">
+            <i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print this Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i>&nbsp;Export to Excel</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <form class="form-inline pt-0 mb-3">
+    <label for="inlineFormInput">Search:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="" name="search" [(ngModel)]="search" (input)="filterHoldings($event)">
+  </form>
+  <table class="table table-bordered">
+    <thead class="table-active">
+      <tr>
+        <th>Custody</th>
+        <th>CRY</th>
+        <th>Nominal</th>
+        <th>Class</th>
+        <th>Code/ISIN</th>
+        <th>Description</th>
+        <th>CPN</th>
+        <th>Maturity</th>
+        <th>Bid</th>
+        <th>Cost</th>
+        <th>Change</th>
+        <th>Unrl. P/L</th>
+        <th>Acc. Int</th>
+        <th>Marcket Value</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="portfolio">
+      <tr *ngFor="let item of filteredHoldings">
+        <td>{{item['pv_custodian']}}</td>
+        <td>{{item['pv_currency']}}</td>
+        <td>{{item['pv_amount']}}</td>
+        <td>{{item['pv_asset_class']}}</td>
+        <td>{{item['pv_code']}}</td>
+        <td>{{item['pv_description']}}</td>
+        <td>{{item['pv_coupon_rate']}}</td>
+        <td>{{item['pv_maturity_date']}}</td>
+        <td>{{item['pv_bid_price']}}</td>
+        <td>{{item['pv_cost_price']}}</td>
+        <td>{{item['pv_change']}}</td>
+        <td>{{item['pv_unrealized_pnl']}}</td>
+        <td>{{item['pv_accrued_interest']}}</td>
+        <td>{{item['pv_market_value']}}</td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="portfolio['reference_currency']">
+      <tr>
+        <td colspan="14" style="text-align: right;">Total Estimated Market Value in
+          <strong *ngIf="portfolio">{{portfolio['reference_currency']['code']}}: {{portfolio.total_estimated_market_value}}</strong>
+        </td>
+      </tr>
+
+      <tr class="table-active">
+        <td colspan="14" style="text-align: right;" *ngIf="portfolio">Refrenced Currency:
+          <strong>{{portfolio['reference_currency']['code']}}.</strong> Portfolio as of
+          <strong>{{portfolio.as_of | date: 'dd/MM/yyyy'}}</strong>. Last Transaction on
+          <strong>{{portfolio.last_transaction | date: 'dd/MM/yyyy'}}</strong>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <br>
+  <p>Page {{filteredHoldings.length ? 1 : 0}} of {{filteredHoldings.length}} entries
+    <span class="ml-2" *ngIf="filteredHoldings.length != portfolio.holdings.length">(filtered from {{portfolio.holdings.length}} total entries)</span>
+  </p>
+</div>

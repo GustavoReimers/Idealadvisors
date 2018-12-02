@@ -1,0 +1,79 @@
+#page-content {
+    width: 620px;
+    padding: 20px 20px 20px 20px;
+    float: left;
+}
+
+#sidebar {
+    width: 300px;
+    float: left;
+    padding-top: 124px;
+}
+
+#page-content h1 {
+    padding: 50px 0 18px 0;
+    border-bottom: 5px solid #F1A004;
+    margin-bottom: 18px;
+    color: #0B3C46;
+    font-size: 2.2rem;
+}
+
+#page-content h2 {
+    padding: 24px 0 9px 0;
+    color: #0B3C46;
+    font-size: 1.8em; /*border-top:1px solid #F1A004;*/
+}
+
+#page-content h3 {
+    color: #F1A004;
+    line-height: 18px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#page-content p, #page-content ul {
+    line-height: 18px;
+    margin-bottom: 18px;
+}
+
+#page-content p.intro {
+    font-size: 1.6em;
+    line-height: 24px;
+    color: #666;
+}
+
+#page-content ul {
+    font-size: 1.2em;
+    margin-left: 1em;
+    padding: 0;
+}
+
+#sidebar p.author {
+    padding: 10px 20px;
+    background: url('../../../../assets/img/bg-author.png') left top no-repeat;
+    color: #666;
+}
+
+#sidebar blockquote {
+    padding: 20px;
+    font-size: 1.6em;
+    font-family: Georgia;
+    font-style: italic;
+    background-color: #F1A004;
+    color: #fff;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.content {
+    background: #ffffff;
+}
+
+#page-content a, #page-content a:hover {
+    color: #000000;
+    text-decoration: underline;
+}

@@ -1,0 +1,90 @@
+/* Content CSS */
+.content{
+  background: #fff;
+  padding:20px 20px 20px 20px;
+}
+.content h3{
+  color: #000;
+  font-weight: bold;
+}
+.btn{
+  border-radius: 0;
+}
+.btn-secondary{
+  background: #eaeaea;
+  border-color: #000;
+  margin-right: 10px;
+}
+.btn-secondary #order{
+  color: #3ab43a;
+}
+.btn-secondary #portfolio{
+  color: #d71111;
+}
+.content h4{
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
+}
+p{
+  font-size: 1.2em;
+}
+p a{
+  text-decoration: underline;
+}
+p a:hover{
+  color: #0275d8;
+}
+td .fa{
+  color: #e13636;
+  font-size: 1.8em;
+  vertical-align: middle;
+}
+/* Tabel CSS */
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 1px;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #cbcbcb;
+}
+tbody{
+  font-size: 1.1em;
+}
+.table td{
+  vertical-align: middle;
+}
+.breadcrumb{
+  background-color: #ffffff;
+  font-size: 11px;
+}
+.content a, .content a:hover{
+  color: #00639A;
+  text-decoration: underline;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+  content: ">>";
+}
+
+/* Tabel CSS */
+thead{
+  background: #eeeeee;
+}
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 1px;
+}
+.table thead th{
+  border-bottom: 1px solid #000;
+  font-size: 1.2em;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #cbcbcb;
+}
+tbody{
+  font-size: 1.1em;
+}
+.table-responsive{
+  display:table;
+}
+.message-nav{
+  margin-top:0px;
+}

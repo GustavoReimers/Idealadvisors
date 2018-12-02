@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+  <h4>Assests</h4>
+  <hr>
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'estimated_bankable_assets')">
+    <label for="bnkAssest">Bankable Assests</label>
+    <input type="number" name="estimated_bankable_assets" id="bnkAssest" class="form-control" formControlName="estimated_bankable_assets">(in USD million)
+  </div>
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'estimated_total_assets')">
+    <label for="totalAssest">Total Assests</label>
+    <input type="number" name="estimated_total_assets" id="totalAssest" class="form-control" formControlName="estimated_total_assets">(in USD million)
+  </div>
+  <h4>Net New Money</h4>
+  <hr>
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'net_new_money')">
+    <label for="nnm">NNM</label>
+    <input type="number" name="net_new_money" class="form-control" formControlName="net_new_money">(in USD million)
+  </div>
+  <div class="form-group">
+    <label for="pipeDeadline">Pipeline Deadline</label>
+    <select class="form-control" name="pipeline_deadline_months" formControlName="pipeline_deadline_months">
+      <option value="3">3 months</option>
+      <option value="6">6 months</option>
+      <option value="9">9 months</option>
+    </select>
+  </div>
+</form>

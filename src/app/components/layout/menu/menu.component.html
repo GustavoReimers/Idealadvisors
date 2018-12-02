@@ -1,0 +1,25 @@
+<div class="menu">
+    <nav class="navbar navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="menu">
+            <ul class="navbar-nav nav-fill" *ngIf="setting.getUserSetting('profile').role == 30">
+                <li class="nav-item dropdown" *ngFor="let menuItem of operatorMenuItems">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{menuItem.name}}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" *ngFor="let item of menuItem.subMenus" [routerLink]="['/' + item.routerName]">{{item.name}}</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-fill" *ngIf="setting.getUserSetting('profile').role == 40">
+                <li class="nav-item dropdown" *ngFor="let menuItem of clientMenuItems">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{menuItem.name}}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" *ngFor="let item of menuItem.subMenus" [routerLink]="['/' + item.routerName]">{{item.name}}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

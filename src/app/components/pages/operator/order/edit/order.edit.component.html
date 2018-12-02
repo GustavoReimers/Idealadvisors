@@ -1,0 +1,9 @@
+<div *ngIf="order.id && order.details" [ngSwitch]="order.details.order_type">
+  <ng-container *ngSwitchCase="'FX'">
+    <page-editfx-order [order]="order"></page-editfx-order>
+  </ng-container>
+  <ng-container *ngSwitchCase="'SECURITY::BUY'">
+    <page-editsecurity-order [order]="order"></page-editsecurity-order>
+  </ng-container>
+  <div class="text-center" *ngSwitchDefault>Order type not found</div>
+</div>

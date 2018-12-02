@@ -1,0 +1,83 @@
+<div class="may page-prospect">
+  <div class="content">
+    <block-prospect-header></block-prospect-header>
+    <h4>Create New Profile</h4>
+
+    <div class="border mb-2 custStyle" *ngIf="information.relationships">
+      <tabset #staticTabs>
+        <tab heading="Main">
+          <prospect-main-form [information]="information" (ref)="addForm($event, 'main')"></prospect-main-form>
+        </tab>
+        <tab heading="Contact">
+          <tabset #contactTabs>
+            <tab heading="Mailing">
+              <prospect-mailing-form [information]="information" (ref)="addForm($event, 'mailing')"></prospect-mailing-form>
+            </tab>
+            <tab heading="Residence">
+              <prospect-residence-form [information]="information" (ref)="addForm($event, 'residence')"></prospect-residence-form>
+            </tab>
+            <tab heading="Phone & Fax">
+              <prospect-fax-form (ref)="addForm($event, 'fax')"></prospect-fax-form>
+            </tab>
+            <tab heading="Emailing">
+              <prospect-emailing-form (ref)="addForm($event, 'emailing')"></prospect-emailing-form>
+            </tab>
+            <tab heading="Personal Assitant">
+              <prospect-assitant-form (ref)="addForm($event, 'assitant')"></prospect-assitant-form>
+            </tab>
+          </tabset>
+        </tab>
+        <tab heading="Company">
+          <prospect-company-form [information]="information" (ref)="addForm($event, 'company')"></prospect-company-form>
+        </tab>
+        <tab heading="Family">
+          <tabset #fatherTabs>
+            <tab heading="Father">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'father')"></prospect-family-form>
+            </tab>
+            <tab heading="Mother">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'mother')"></prospect-family-form>
+            </tab>
+            <tab heading="Spouse">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'spouse')"></prospect-family-form>
+            </tab>
+            <tab heading="Ex Spouse 1">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'ex_spouse_1')"></prospect-family-form>
+            </tab>
+
+            <tab heading="Ex Spouse 2">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'ex_spouse_2')"></prospect-family-form>
+            </tab>
+
+            <tab heading="Children">
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'child_1')"></prospect-family-form>
+              <hr>
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'child_2')"></prospect-family-form>
+              <hr>
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'child_3')"></prospect-family-form>
+              <hr>
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'child_4')"></prospect-family-form>
+              <hr>
+              <prospect-family-form [information]="information" (ref)="addForm($event, 'child_5')"></prospect-family-form>
+            </tab>
+          </tabset>
+        </tab>
+        <tab heading="Hobbies">
+          <prospect-hobby-form (ref)="addForm($event, 'hobby')"></prospect-hobby-form>
+        </tab>
+        <tab heading="CAs">
+          <prospect-ca-form [information]="information" (ref)="addForm($event, 'ca')"></prospect-ca-form>
+        </tab>
+        <tab heading="Wealth">
+          <prospect-wealth-form (ref)="addForm($event, 'wealth')"></prospect-wealth-form>
+        </tab>
+        <tab heading="Track">
+          <prospect-track-form (ref)="addForm($event, 'track')"></prospect-track-form>
+        </tab>
+      </tabset>
+    </div>
+    <div class="text-right">
+      <button type="button" class="btn btn-secondary" (click)="saveProfile()">Save Profile Information</button>
+    </div>
+  </div>
+</div>

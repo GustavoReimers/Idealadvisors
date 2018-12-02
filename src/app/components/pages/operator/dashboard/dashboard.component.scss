@@ -1,0 +1,95 @@
+.content {
+  background: #fff;
+  padding: 20px 20px 20px 20px;
+}
+
+.content h3 {
+  color: #000;
+  font-weight: bold;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-secondary {
+  background: #eaeaea;
+  border-color: #000;
+  margin-right: 10px;
+}
+
+.content h4 {
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+/* Pagination CSS */
+.page-link {
+  color: #000;
+  font-size: 1.2em;
+}
+
+.page-link:hover {
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.col-12 h3 {
+  padding-top: 45px;
+}
+
+/* Tabel CSS */
+table {
+  color: #000;
+}
+
+thead {
+  background: #eeeeee;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 1px;
+}
+
+.table thead th {
+  border-bottom: 1px solid #000;
+  font-size: 1.4em;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #cbcbcb;
+}
+
+tbody {
+  font-size: 1.2em;
+}
+
+tr a,
+tr a:hover {
+  text-decoration: underline;
+  color: #0275d8;
+}
+
+.page-item .page-link {
+  border: none;
+}
+
+.page-link .fa {
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.pagination.justify-content-end {
+  margin-top: 0;
+}
+a.btn {
+  text-decoration: none;
+  color: black;
+}

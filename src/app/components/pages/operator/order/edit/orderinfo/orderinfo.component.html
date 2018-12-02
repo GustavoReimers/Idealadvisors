@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Instrument Type</th>
+            <th>ISIN</th>
+            <th>Description</th>
+            <th>Received At</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Additional Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{order.id}}</td>
+            <td>{{order.details.order_type}}</td>
+            <td>{{order.details.isin}}</td>
+            <td>{{order.description}}</td>
+            <td>{{order.received_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+            <td>{{order.details.nominal_amount}}</td>
+            <td>{{order.details.price}}</td>
+            <td>{{order.details.additional_note}}</td>
+        </tr>
+    </tbody>
+</table>

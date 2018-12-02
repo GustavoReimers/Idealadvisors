@@ -1,0 +1,42 @@
+<div class="content">
+    <h4>Pending Transactions {{clientId ? '- for Client ' + clientId : ''}}</h4>
+    <table class="table table-bordered">
+        <thead class="table-active">
+            <tr>
+                <th>TXN ID</th>
+                <th>TXN Type</th>
+                <th>Account</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>CRY</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of pendingTransactions">
+                <td>{{item.internal_code}}</td>
+                <td>{{item.txn_type}}</td>
+                <td>{{item.account.code}}</td>
+                <td>{{item.settlement_at | date: 'yyyy-dd-MM'}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.currency}}</td>
+                <td>{{item.amount}}</td>
+                <td>
+                    <a [routerLink]="['/operator/transaction/edit/cash/' + item.id]" *ngIf="item.txn_type == 'CASH'">Realize</a>
+                    <a [routerLink]="['/operator/transaction/edit/deposit/' + item.id]" *ngIf="item.txn_type == 'DEPOSIT'">Realize</a>
+                    <a [routerLink]="['/operator/transaction/edit/fx/' + item.id]" *ngIf="item.txn_type == 'FX'">Realize</a>
+                    <a [routerLink]="['/operator/transaction/edit/loan/' + item.id]" *ngIf="item.txn_type == 'LOAN'">Realize</a>
+                    <a [routerLink]="['/operator/transaction/edit/security/' + item.id]" *ngIf="item.txn_type == 'SECURITY'">Realize</a>
+                </td>
+            </tr>
+            <tr *ngIf="loading">
+                <td colspan="8" class="text-center">
+                    <i class="fa fa-spinner fa-spin fa-fw fa-2x"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>Page 1 of 1</p>
+</div>

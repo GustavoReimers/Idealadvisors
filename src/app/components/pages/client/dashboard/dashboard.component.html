@@ -1,0 +1,89 @@
+<div class="content">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-8">
+            <br>
+            <h3>Welcome To Ideal Portal</h3>
+            <p>The Ideal Portal is designed to allow you to access both your portfolio snapshot, and the services
+                provided by Ideal Advisors. For the services that are not accessible for your account, please contact
+                your client advisor.</p>
+            <a [routerLink]="['/client/order/create']" type="button" class="btn btn-secondary">
+                <i id="order" class="fa fa-plus" aria-hidden="true"></i>&nbsp;Place an order</a>
+            <a [routerLink]="['/client/portfolio']" type="button" class="btn btn-secondary"><i id="portfolio" class="fa fa-user" aria-hidden="true"></i>&nbsp;Go
+                to your portfolio</a>
+            <h4>Your Orders</h4>
+            <br>
+            <h5>Placed</h5>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Detail</th>
+                    <th>Nom. Amt.</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let item of placedOrders">
+                    <td>{{item.details.order_type}}</td>
+                    <td>{{item.received_at | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{item.details.additional_note}}</td>
+                    <td>{{item.details.nominal_amount}}</td>
+                    <td>{{item.details.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h5>In Process</h5>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Detail</th>
+                    <th>Nom. Amt.</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of processOrders">
+                    <td>{{item.txn_type}}</td>
+                    <td>{{item.settlement_at | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{item.detail}}</td>
+                    <td>{{item.nominal_amount}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h5>Executed</h5>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Detail</th>
+                    <th>Nom. Amt.</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of executedOrders">
+                    <td>{{item.details.order_type}}</td>
+                    <td>{{item.received_at | date: 'dd-MM-yyyy'}}</td>
+                    <td>{{item.details.additional_note}}</td>
+                    <td>{{item.details.nominal_amount}}</td>
+                    <td>{{item.details.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+
+            <h4>Total Market Value</h4>
+            <p>The Total Market Value of your portfolio at the moment:</p>
+            <h3 style="font-weight: normal;" *ngIf="portfolioDetail">{{portfolioDetail.total_estimated_market_value}} {{portfolioDetail['reference_currency']['code']}}</h3>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+<div>
+  <form [formGroup]="form">
+    <div class="row" *ngFor="let i of cprf;">
+      <div class="col-6">
+        <div class="form-group row">
+          <label class="col-sm-2">Role</label>
+          <select class="form-control col-sm-10" [name]="'cprf_' + i + '-role'" [formControlName]="'cprf_' + i + '-role'">
+            <option value="" selected="selected">---------</option>
+            <ng-template [ngIf]="information.company_roles">
+              <option *ngFor="let item of information.company_roles" [value]="item.id">
+                {{item.name}}
+              </option>
+            </ng-template>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group row">
+          <label class="col-sm-2">Company</label>
+          <div class="col-sm-10">
+            <select class="form-control d-inline-block" [name]="'cprf_' + i + '-company'" [formControlName]="'cprf_' + i + '-company'"
+              style="width: calc(100% - 20px)">
+              <option value="" selected="selected">---------</option>
+              <option *ngFor="let item of companies" [value]="item.id">
+                {{item.name}}
+              </option>
+            </select>
+            <a *ngIf="form.controls['cprf_' + i + '-company'].value" [routerLink]="['/operator/prospect/company/edit', form.controls['cprf_' + i + '-company'].value]"
+              class="cp" title="Edit">
+              <i class="fa fa-search"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form [formGroup]="companyForm" (submit)="createCompany($event)">
+    <p (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+      <i aria-hidden="true" class="fa fa-caret-down"></i>
+      <span class="text-primary">New Company</span>
+    </p>
+
+    <hr>
+    <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
+      <div class="form-group">
+        <label class="mr-1">Role</label>
+        <select class="form-control" name="role" formControlName="role">
+          <option value="" selected="selected">---------</option>
+          <ng-template [ngIf]="information.company_roles">
+            <option *ngFor="let item of information.company_roles" [value]="item.id">
+              {{item.name}}
+            </option>
+          </ng-template>
+        </select>
+      </div>
+
+      <div class="form-group" [ngClass]="validate.displayFieldCss(companyForm, 'name')">
+        <label class="mr-1">Name</label>
+        <input type="text" class="form-control" name="name" formControlName="name">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Sector</label>
+        <select class="form-control" name="sector" formControlName="sector">
+          <option value="" selected="selected">---------</option>
+          <ng-template [ngIf]="information.sectors">
+            <option *ngFor="let item of information.sectors" [value]="item.id">
+              {{item.name}}
+            </option>
+          </ng-template>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Email</label>
+        <input type="email" class="form-control" name="email" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Address line 1</label>
+        <input type="text" class="form-control" name="address_line1" formControlName="address_line1" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Address line 2</label>
+        <input type="text" class="form-control" name="address_line2" formControlName="address_line2" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Address postal code</label>
+        <input type="text" class="form-control" name="address_postal_code" formControlName="address_postal_code" maxlength="6">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Address city</label>
+        <input type="text" class="form-control" name="address_city" formControlName="address_city" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Address Country</label>
+        <select class="form-control" name="address_country" formControlName="address_country">
+          <option value="" selected="selected">---------</option>
+          <ng-template [ngIf]="information.countries">
+            <option *ngFor="let item of information.countries" [value]="item.code">
+              {{item.name}}
+            </option>
+          </ng-template>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx tel country code</label>
+        <input type="text" class="form-control" name="pbx_tel_country_code" formControlName="pbx_tel_country_code">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx tel area code</label>
+        <input type="text" class="form-control" name="pbx_tel_area_code" formControlName="pbx_tel_area_code">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx tel number</label>
+        <input type="text" class="form-control" name="pbx_tel_number" formControlName="pbx_tel_number">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx fax country code</label>
+        <input type="text" class="form-control" name="pbx_fax_country_code" formControlName="pbx_fax_country_code">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx fax area code</label>
+        <input type="text" class="form-control" name="pbx_fax_area_code" formControlName="pbx_fax_area_code">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Pbx fax number</label>
+        <input type="text" class="form-control" name="pbx_fax_number" formControlName="pbx_fax_number">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Number of employees</label>
+        <div>
+          <input type="number" class="form-control d-inline-block" name="number_of_employees" formControlName="number_of_employees">
+          <small>(in USD million)</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Turnover</label>
+        <input type="number" class="form-control" name="turnover" formControlName="turnover">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Company field 1</label>
+        <input type="text" class="form-control" name="company_field_1" formControlName="company_field_1" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Company field 2</label>
+        <input type="text" class="form-control" name="company_field_2" formControlName="company_field_2" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Company field 3</label>
+        <input type="text" class="form-control" name="company_field_3" formControlName="company_field_3" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Company field 4</label>
+        <input type="text" class="form-control" name="company_field_4" formControlName="company_field_4" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Company field 5</label>
+        <input type="text" class="form-control" name="company_field_5" formControlName="company_field_5" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Website</label>
+        <input type="text" class="form-control" name="web_site" formControlName="web_site" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="mr-1">Info</label>
+        <input type="text" class="form-control" name="info" formControlName="info" maxlength="60">
+      </div>
+      <button class="btn btn-primary">Create Company</button>
+    </div>
+  </form>
+
+</div>

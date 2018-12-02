@@ -1,0 +1,33 @@
+<!-- Content  -->
+<div class="content">
+  <div class="row">
+    <div class="col-6 col-md-2 col-lg-2 folder-opt" *ngFor="let category of categories">
+      <a class="icon-folder"></a>&nbsp;<a (click)="selectCategory(category)">{{category.name}}</a> <!-- here we can display category name using category variable -->
+    </div>
+  </div>
+  <br>
+  <h4 *ngIf="selectedCategory">{{selectedCategory.name}}</h4>
+  <div class="row" *ngIf="selectedCategory && selectedCategory.folder_set.length > 0">
+    <div class="col-12">
+      <div class="border">
+        <ul class="nav nav-tabs custStyle" role="tablist">
+          <li class="nav-item" *ngFor="let item of selectedCategory.folder_set">
+            <a class="nav-link" [href]="'#folder' + item.id" role="tab" data-toggle="tab">{{item.name}}</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- ************************************  MAIN  ***************************************** -->
+          <div role="tabpanel" class="tab-pane fade" [id]="'folder' + item.id" *ngFor="let item of selectedFolders">
+            <div class="document-wrapper" *ngIf="item.document_set.length > 0">
+              <a class="document" *ngFor="let document of item.document_set">{{document.name}}<br></a>
+            </div>
+            <div class="file-content" *ngIf="item.document_set.length == 0"><p class="no_file_message">There are no files available for download.</p></div>
+          </div>
+        </div><!-- tab content -->
+      </div><!-- Border -->
+    </div><!-- col-12-->
+  </div><!-- ROW -->
+  <p *ngIf="selectedCategory && selectedCategory.folder_set.length == 0" class="no_file_message">There are no files available for download.</p>
+</div>
+

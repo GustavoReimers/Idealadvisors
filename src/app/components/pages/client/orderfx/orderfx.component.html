@@ -1,0 +1,62 @@
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <h3>Online Order</h3>
+        </div>
+        <div class="col-7">
+            <a type="button" class="btn btn-secondary" [routerLink]="['/client/orderbuy/create']"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Buy Security</a>
+            <a type="button" class="btn btn-secondary" [routerLink]="['/client/ordersell/create']"><i class="fa fa-minus-circle" aria-hidden="true"></i>&nbsp;Sell Security</a>
+            <a type="button" class="btn btn-secondary" [routerLink]="['/client/orderfx/create']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;FX Order</a>
+            <h4>FX</h4>
+            <br>
+            <form [formGroup]="form">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'buy_currency')">
+                            <label for="buyCurrency">Buy Currency</label>
+                            <select class="form-control" id="buyCurrency" formControlName="buy_currency" (change)="changeCurrency()">
+                                <option *ngFor="let item of currencies" [value]="item.id">{{item.code}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4"></div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'sell_currency')">
+                            <label for="SellCurrency">Sell Currency</label>
+                            <select class="form-control" id="SellCurrency" formControlName="sell_currency" (change)="changeCurrency()">
+                                <option *ngFor="let item of currencies" [value]="item.id">{{item.code}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'buy_amount')">
+                            <label for="buyAmount">Buy Amount</label>
+                            <input type="number" class="form-control" id="buyAmount" placeholder="" formControlName="buy_amount" (input)="changeBuyAmount()">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 p-0">
+                        <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'rate')">
+                            <label for="rate">Rate <span>{{rateLabel}}</span></label>
+                            <input type="number" class="form-control" id="rate" placeholder="" formControlName="rate" (input)="changeRate()">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'sell_amount')">
+                            <label for="sellAmouunt">Sell Amount</label>
+                            <input type="number" class="form-control" id="sellAmouunt" placeholder="" formControlName="sell_amount" (input)="changeSellAmount()">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'additional_note')">
+                    <label for="additionalNote">Additional Note</label>
+                    <textarea class="form-control" id="additionalNote" rows="8" formControlName="additional_note"></textarea>
+                </div>
+                <div id="orderbtn">
+                    <button type="submit" class="btn btn-secondary" (click)="placeOrder()">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

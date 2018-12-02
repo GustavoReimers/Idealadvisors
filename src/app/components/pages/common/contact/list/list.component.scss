@@ -1,0 +1,58 @@
+/* Content CSS */
+.content{
+  background: #fff;
+  padding:20px 20px 20px 20px;
+}
+.content h3{
+  color: #000;
+  font-weight: bold;
+}
+.btn{
+  border-radius: 0;
+}
+.btn-secondary{
+  background: #eaeaea;
+  border-color: #000;
+  margin-right: 10px;
+}
+.btn-secondary #order{
+  color: #3ab43a;
+}
+.btn-secondary #portfolio{
+  color: #d71111;
+}
+.content h4{
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 1.8em;
+}
+p{
+  font-size: 1.2em;
+}
+p a{
+  text-decoration: underline;
+}
+p a:hover{
+  color: #0275d8;
+}
+/* Tabel CSS */
+.table-responsive{
+  display:table !important;
+}
+thead{
+  background: #eeeeee;
+}
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 1px;
+}
+.table thead th{
+  border-bottom: 1px solid #000;
+  font-size: 1.2em;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #cbcbcb;
+}
+tbody{
+  font-size: 1.1em;
+}

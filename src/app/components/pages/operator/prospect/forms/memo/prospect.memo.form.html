@@ -1,0 +1,51 @@
+<form [formGroup]="form" (submit)="createCallMemo($event)">
+  <div class="form-group">
+    <label for="DOM">Date of Meeting</label>
+    <input type="date" id="DOM" class="form-control" name="date_of_meeting" formControlName="date_of_meeting">
+  </div>
+  <div class="form-group">
+    <label for="meetPlace">Meeting Place</label>
+    <select class="form-control" id="meetPlace" name="meeting_place" formControlName="meeting_place">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.meeting_places">
+        <option *ngFor="let item of information.meeting_places" [value]="item.id">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Meeting City</label>
+    <input type="text" class="form-control" name="city" formControlName="city">
+  </div>
+  <div class="form-group">
+    <label>Meeting Country</label>
+    <select class="form-control" name="country" formControlName="country">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.countries">
+        <option *ngFor="let item of information.countries" [value]="item.code">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="meetNotes">Meeting Notes</label>
+    <textarea id="meetNotes" rows="5" class="form-control" name="meeting_notes" formControlName="meeting_notes"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="followup">Followup</label>
+    <textarea id="followup" rows="5" class="form-control" name="followup" formControlName="followup"></textarea>
+  </div>
+  <div class="form-check" *ngIf="information.interests">
+    <ng-template ngFor let-interest [ngForOf]="information.interests">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" [checked]="interests.indexOf(interest.id) > -1" (change)="handleInterestChange($event, interest.id)">&nbsp;{{interest.name}}
+      </label>
+      <br>
+    </ng-template>
+  </div>
+  <button class="btn btn-primary">Create Call Memo</button>
+</form>

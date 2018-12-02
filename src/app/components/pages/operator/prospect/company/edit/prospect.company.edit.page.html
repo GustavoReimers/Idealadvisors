@@ -1,0 +1,141 @@
+<div class="may page-prospect">
+  <div class="content">
+    <block-prospect-header></block-prospect-header>
+    <h4>Edit Company: {{company.name}}</h4>
+
+    <form [formGroup]="form" (submit)="handleSubmit($event)">
+      <div class="border mb-2 custStyle" *ngIf="information.relationships">
+        <tabset #staticTabs>
+          <tab heading="General Information">
+            <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'name')">
+              <label class="mr-1">Name</label>
+              <input type="text" class="form-control" name="name" formControlName="name">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Sector</label>
+              <select class="form-control" name="sector" formControlName="sector">
+                <option value="" selected="selected">---------</option>
+                <ng-template [ngIf]="information.sectors">
+                  <option *ngFor="let item of information.sectors" [value]="item.id">
+                    {{item.name}}
+                  </option>
+                </ng-template>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="mr-1">Number of employees</label>
+              <div>
+                <input type="number" class="form-control d-inline-block" name="number_of_employees" formControlName="number_of_employees">
+                <small>(in USD million)</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Turnover</label>
+              <input type="number" class="form-control" name="turnover" formControlName="turnover">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Website</label>
+              <input type="text" class="form-control" name="web_site" formControlName="web_site" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Info</label>
+              <input type="text" class="form-control" name="info" formControlName="info" maxlength="60">
+            </div>
+          </tab>
+          <tab heading="Address">
+            <div class="form-group">
+              <label class="mr-1">Line 1</label>
+              <input type="text" class="form-control" name="address_line1" formControlName="address_line1" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Line 2</label>
+              <input type="text" class="form-control" name="address_line2" formControlName="address_line2" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Postal code</label>
+              <input type="text" class="form-control" name="address_postal_code" formControlName="address_postal_code" maxlength="6">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">City</label>
+              <input type="text" class="form-control" name="address_city" formControlName="address_city" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Country</label>
+              <select class="form-control" name="address_country" formControlName="address_country">
+                <option value="" selected="selected">---------</option>
+                <ng-template [ngIf]="information.countries">
+                  <option *ngFor="let item of information.countries" [value]="item.code">
+                    {{item.name}}
+                  </option>
+                </ng-template>
+              </select>
+            </div>
+          </tab>
+          <tab heading="Custom Fields">
+            <div class="form-group">
+              <label class="mr-1">Company field 1</label>
+              <input type="text" class="form-control" name="company_field_1" formControlName="company_field_1" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Company field 2</label>
+              <input type="text" class="form-control" name="company_field_2" formControlName="company_field_2" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Company field 3</label>
+              <input type="text" class="form-control" name="company_field_3" formControlName="company_field_3" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Company field 4</label>
+              <input type="text" class="form-control" name="company_field_4" formControlName="company_field_4" maxlength="60">
+            </div>
+
+            <div class="form-group">
+              <label class="mr-1">Company field 5</label>
+              <input type="text" class="form-control" name="company_field_5" formControlName="company_field_5" maxlength="60">
+            </div>
+          </tab>
+          <tab heading="Communication">
+            <div class="form-group">
+              <label class="mr-1">Email</label>
+              <input type="email" class="form-control" name="email" formControlName="email">
+            </div>
+
+            <div class="form-group">
+              <label>PBX tel</label>
+              <div class="phone-row">
+                <span class="mr-1">+</span>
+                <input type="text" class="form-control mr-1" placeholder="" formControlName="pbx_tel_country_code">
+                <input type="text" class="form-control mr-1" placeholder="" formControlName="pbx_tel_area_code">
+                <input type="text" class="form-control" placeholder="" formControlName="pbx_tel_number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>PBX fax</label>
+              <div class="phone-row">
+                <span class="mr-1">+</span>
+                <input type="text" class="form-control mr-1" placeholder="" formControlName="pbx_fax_country_code">
+                <input type="text" class="form-control mr-1" placeholder="" formControlName="pbx_fax_area_code">
+                <input type="text" class="form-control" placeholder="" formControlName="pbx_fax_number">
+              </div>
+            </div>
+          </tab>
+        </tabset>
+      </div>
+      <div class="text-right">
+        <button type="submit" class="btn btn-secondary">Save Company Information</button>
+      </div>
+    </form>
+  </div>
+</div>

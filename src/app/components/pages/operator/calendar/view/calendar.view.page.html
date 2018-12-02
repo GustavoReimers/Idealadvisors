@@ -1,0 +1,8 @@
+<div class="may page-prospect">
+  <div class="content">
+    <h4>Collaborative Calendar</h4>
+    <div *ngIf="calendarOptions">
+      <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+        (eventResize)="updateEvent($event.detail)" (dayClick)="dayClick($event.detail)"></ng-fullcalendar>
+    </div>
+  </div>

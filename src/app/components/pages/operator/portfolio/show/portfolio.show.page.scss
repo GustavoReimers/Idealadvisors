@@ -1,0 +1,24 @@
+.content {
+  padding: 20px 20px 20px 20px;
+}
+.content h4 {
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
+}
+.t-links {
+  list-style: none;
+}
+.t-links li {
+  display: inline-block;
+  font-size: 1.8em;
+  padding-right: 5px;
+}
+.col-4 .justify-content-end {
+  margin-top: auto;
+  font-size: 1.3em;
+}
+footer .col-6 .justify-content-end,
+.col-12 .justify-content-end {
+  margin-top: 0;
+}

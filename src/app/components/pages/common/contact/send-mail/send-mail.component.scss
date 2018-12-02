@@ -1,0 +1,74 @@
+/* Content CSS */
+.content{
+  background: #fff;
+  padding:20px 20px 20px 20px;
+}
+.content h3{
+  color: #000;
+  font-weight: bold;
+}
+.btn{
+  border-radius: 0;
+}
+.btn-secondary{
+  background: #eaeaea;
+  border-color: #000;
+  margin-right: 10px;
+}
+.btn-secondary #order{
+  color: #3ab43a;
+}
+.btn-secondary #portfolio{
+  color: #d71111;
+}
+.content h4{
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
+  font-size: 1.8em;
+}
+p{
+  font-size: 1.2em;
+}
+p a{
+  text-decoration: underline;
+}
+p a:hover{
+  color: #0275d8;
+}
+/* Tabel CSS */
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 1px;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #cbcbcb;
+}
+.table-responsive{
+  display:table !important;
+}
+tbody{
+  font-size: 1.1em;
+}
+.table td{
+  vertical-align: middle;
+}
+td:nth-of-type(odd){
+  background:#e8e8e8;
+}
+/* Form CSS */
+#textArea>.form-control{
+  width: 55%;
+}
+label{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+input[type='text'],.input-group{
+  width: 50%;
+}
+input[type='file']{
+  border:none;
+}
+.form-send-mail{
+  padding-top:0px;
+}

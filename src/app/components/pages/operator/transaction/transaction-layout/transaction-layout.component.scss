@@ -1,0 +1,25 @@
+.content{
+    background: #fff;
+    padding:20px 20px 20px 20px;
+}
+.content h3{
+    color: #000;
+    font-weight: bold;
+}
+
+.breadcrumb{
+    background-color: #ffffff;
+    font-size: 1.2em;
+    padding-top: 20px;
+
+    .breadcrumb-item {
+        float: none;
+    }
+}
+.content a, .content a:hover{
+    color: #00639A;
+    text-decoration: underline;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    content: "|";
+}

@@ -1,0 +1,42 @@
+<div class="content">
+    <h4>Waiing Orders</h4>
+    <table class="table table-bordered">
+        <thead class="table-active">
+            <tr>
+                <th>Client</th>
+                <th>Instrument type</th>
+                <th>ISIN</th>
+                <th>Description</th>
+                <th>Recieved At</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Additional Info</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of waitingOrders">
+                <td>{{item.client.code}}</td>
+                <td class="text-uppercase">{{item.details.order_type}}</td>
+                <td>{{item.details.isin}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.received_at | date: 'dd-MM-yyyy'}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.price}}</td>
+                <td class="desc">{{item.details.additional_note}}</td>
+                <td>Waiting</td>
+                <td>[
+                    <a [routerLink]="['/operator/order/execute/', item.id]">Execute</a>]</td>
+            </tr>
+
+            <tr *ngIf="loading">
+                <td colspan="10" class="text-center">
+                    <i class="fa fa-spinner fa-spin fa-fw fa-2x"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>Page 1 of 1</p>
+</div>

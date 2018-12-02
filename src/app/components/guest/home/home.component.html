@@ -1,0 +1,131 @@
+<div class="content">
+    <div class="row" id="frow">
+        <div class="col-12 col-md-12 col-lg-7">
+            <div id="accordion">
+                <div class="panel">
+                    <div class="stand firstpanel"></div>
+                    <div class="panelContent firstSlide">
+                        <div class="text p1">
+                            <h3>Ideal is</h3>
+                            <h1 class="pop">Technology</h1>
+                            <p>Our high-end IT infrastructures consolidates various financial services into a single system that enables :</p>
+                            <ul class="pop medium">
+                                <li>» Straight Through Processing</li>
+                                <li>» Realtime monitoring of accounts and orders</li>
+                                <li>» Global Trading</li>
+                            </ul>
+                        </div>
+                        <div class="panel-link"><a [routerLink]="['/about-us']"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Learn more about us</a></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="stand secondpanel"></div>
+                    <div class="panelContent secondSlide">
+                        <div class="text p2">
+                            <h3>Ideal is</h3>
+                            <h1 class="pop">Holistic Approach</h1>
+                            <p>Wealth management for entrepreneurial clients is only possible through a holistic approach covering corporate finance, tax advisory, fiduciary and trust services from one hand.</p>
+                            <ul class="pop medium">
+                                <li>» Multi location, multi custodian</li>
+                                <li>» Best price execution</li>
+                                <li>» Asset classes based on bank capabilities</li>
+                            </ul>
+                        </div>
+                        <div class="panel-link"><a [routerLink]="['/about-us']"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Learn more about us</a></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="stand thirdpanel"></div>
+                    <div class="panelContent thirdSlide">
+                        <div class="text p3">
+                            <h3>Ideal is</h3>
+                            <h1 class="pop">Ownership</h1>
+                            <p>All Ideal advisors have a share in the ownership of the firm, which makes it possible for them to focus providing the best possible service from day one.</p>
+                            <ul class="pop medium">
+                                <li>» A much more effective way of working</li>
+                                <li>» Aligned interests of between client and advisors</li>
+                                <li>» Genuine sense of loyalty</li>
+                            </ul>
+                        </div>
+                        <div class="panel-link"><a [routerLink]="['/about-us']"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Learn more about us</a></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="stand fourthpanel"></div>
+                    <div class="panelContent fourthSlide">
+                        <div class="text p4">
+                            <h3>Ideal is</h3>
+                            <h1 class="pop">Confidence</h1>
+                            <p>Our team of senior private bankers have the expertise to provide the best possible financial advise aligned with the need of our clients.</p>
+                            <ul class="pop medium">
+                                <li>» Long term relationships built on trust</li>
+                                <li>» Strict emphasis on confidentiality</li>
+                                <li>» Expertise and know-how based on years of experience</li>
+                            </ul>
+                        </div>
+                        <div class="panel-link"><a [routerLink]="['/about-us']"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Learn more about us</a></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-5">
+            <div id="introductional">
+                <div class="introduction-content">
+                    <h2>We are a <span class="pop medium">leading financial services company</span>
+                        <span class="sml">based in Singapore.</span></h2>
+                    <p>We provide <span class="pop sml">high quality financial services</span> to institutional clients around the world.</p>
+                    <p>The ownership structure makes our company <span class="pop sml">free of conflicts</span> typically found in traditional brokerage firms and banks.</p>
+                    <p>We are <span class="pop sml">totally independent</span>, yet fully supported by and connected to prominent financial partners.</p>
+                </div>
+                <div class="panel-link"><a [routerLink]="['/the-distinction']"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> &nbsp;See the distinction</a></div>
+            </div>
+        </div>
+    </div>
+    <span class="bar"></span>
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-7">
+            <div id="client-login" class="clearfix">
+                <h3><span class="default-color">Client</span> Login</h3>
+                <form [formGroup]="form" *ngIf="!setting.getAppSetting('is_loggedin')">
+                    <div class="form-group row" [ngClass]="validate.displayFieldCss(form, 'username')">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" formControlName="username">
+                        </div>
+                    </div>
+                    <div class="form-group row" [ngClass]="validate.displayFieldCss(form, 'password')">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3" formControlName="password">
+                        </div>
+                    </div>
+
+                    <div id="sbtbtn" class="col-8">
+                        <button (click)="login()">Submit</button>
+                    </div>
+                </form>
+
+                <div class="login-info" *ngIf="setting.getAppSetting('is_loggedin')">
+                    <p>
+                        Welcome back {{setting.getUserSetting('username')}}<br>
+                        <a [routerLink]="['/client/dashboard']" *ngIf="setting.getUserSetting('profile').role == 40">Click to go to your dashboard</a>
+                        <a [routerLink]="['/operator/dashboard']" *ngIf="setting.getUserSetting('profile').role == 30">Click to go to your dashboard</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-5">
+            <div id="ideal-opportunities">
+                <h3 class="mb-0"><span class="default-color">Ideal</span> Opportunities</h3>
+                <ul class="mb-0">
+                    <li class="">
+                        <a [routerLink]="['/for-advisors']">For Advisors</a>
+                    </li>
+                    <li class="">
+                        <a [routerLink]="['/ideal-careers']">Ideal Careers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="bar"></span>
+</div>

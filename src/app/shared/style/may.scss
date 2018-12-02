@@ -1,0 +1,69 @@
+.border {
+  border: 1px solid;
+}
+.fa-2x {
+  font-size: 2em !important;
+}
+.cp {
+  cursor: pointer;
+}
+.custStyle {
+  .nav-tabs {
+    background: #b5b5b5;
+    font-size: 1.8em;
+  }
+  .nav-item {
+    background-color: #e8e8e8;
+    margin-right: 5px;
+    border: 1px solid #fff;
+  }
+  .nav-item .nav-link {
+    color: #000;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+.may {
+  .content {
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .content h3 {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .btn {
+    border-radius: 0;
+  }
+
+  .btn-secondary {
+    background: #eaeaea;
+    border-color: #000;
+  }
+
+  .content h4 {
+    color: #000;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+  select.form-control:not([size]):not([multiple]) {
+    height: calc(1.4rem + 2px);
+  }
+
+  /* FORM CSS */
+
+  label {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #000;
+  }
+  .tab-content {
+    padding: 15px;
+  }
+}

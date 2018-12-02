@@ -1,0 +1,67 @@
+<form [formGroup]="form" class="pt-0">
+  <table class="table table-bordered">
+    <tr>
+      <th class="table-active">
+        <label for="title">Title:</label>
+      </th>
+      <td [ngClass]="validate.displayFieldCss(form, 'title')">
+        <input type="text" class="form-control" formControlName="title">
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="sDate">Start Date:</label>
+      </th>
+      <td [ngClass]="validate.displayFieldCss(form, 'start')">
+        <input type="datetime-local" class="form-control" formControlName="start">
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="eDate">End Date:</label>
+      </th>
+      <td [ngClass]="validate.displayFieldCss(form, 'end')">
+        <input type="datetime-local" class="form-control" formControlName="end">
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="desc">Description:</label>
+      </th>
+      <td>
+        <textarea id="desc" cols="50" rows="10" class="form-control" formControlName="description"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="url">URL:</label>
+      </th>
+      <td>
+        <input type="url" class="form-control" formControlName="url">
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="participants">Participants:</label>
+      </th>
+      <td>
+        <select multiple class="form-control" formControlName="participants">
+          <option *ngFor="let item of participants" [value]="item.id">{{item.full_name}}</option>
+        </select>
+        <p>Hold down "Control" or "Comond" on Mac to select more than one.</p>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-active">
+        <label for="public">Is public:</label>
+      </th>
+      <td>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" formControlName="is_public">
+        </label>
+      </td>
+    </tr>
+  </table>
+  <button type="button" class="btn btn-secondary" (click)="handleSubmit($event)">Submit</button>
+  <a class="btn btn-secondary" [routerLink]="['/operator/calendar/view']">Cancel</a>
+</form>

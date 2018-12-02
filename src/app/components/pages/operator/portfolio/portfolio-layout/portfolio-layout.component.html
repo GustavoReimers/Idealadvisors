@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
+            <br>
+            <h3>Portfolio Management System</h3>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6" style="float: right;">
+            <nav class="breadcrumb text-right">
+                <a class="breadcrumb-item" [routerLink]="['client-list']">List of Clients</a>
+                <a class="breadcrumb-item" [routerLink]="['waiting-orders']">Waiting Orders</a>
+                <a class="breadcrumb-item" [routerLink]="['pending-transactions']">Pending Transactions</a>
+                <a class="breadcrumb-item" [routerLink]="['all-transactions']">All Transactions</a>
+            </nav>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

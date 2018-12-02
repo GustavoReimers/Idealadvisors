@@ -1,0 +1,121 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>Relationship</label>
+    <select class="form-control" formControlName="relationship_status">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.relationships">
+        <option *ngFor="let item of information.relationships" [value]="item.id">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Prospect id</label>
+    <input type="text" class="form-control" placeholder="" formControlName="prospect_id">
+  </div>
+
+  <div class="form-group">
+    <label>Prospect category</label>
+    <select class="form-control" formControlName="prospect_category">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.prospect_categories">
+        <option *ngFor="let item of information.prospect_categories" [value]="item.id">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'names')">
+    <label>Name(s)</label>
+    <input type="text" class="form-control" placeholder="" formControlName="names">
+  </div>
+
+  <div class="form-group" [ngClass]="validate.displayFieldCss(form, 'surname')">
+    <label>Surname</label>
+    <input type="text" class="form-control" placeholder="" formControlName="surname">
+  </div>
+
+  <div class="form-group">
+    <label>Maiden name</label>
+    <input type="text" class="form-control" placeholder="" formControlName="maiden_name">
+  </div>
+
+  <div class="form-group">
+    <label>Birth date</label>
+    <div>
+      <input type="date" class="form-control d-inline-block" placeholder="" formControlName="birth_date">
+    </div>
+    <!-- <div>
+      <input type="text" class="form-control d-inline-block" placeholder="" formControlName="birth_date" #dp="bsDatepicker" bsDatepicker>
+      <span (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen">
+        <i class="fa fa-calendar fa-2x text-success"></i>
+      </span>
+    </div> -->
+  </div>
+
+  <div class="form-group">
+    <label>Country of birth</label>
+    <select class="form-control" formControlName="country_of_birth">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.countries">
+        <option *ngFor="let item of information.countries" [value]="item.code">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Nationality 1</label>
+    <select class="form-control" formControlName="nationality_1">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.countries">
+        <option *ngFor="let item of information.countries" [value]="item.code">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Nationality 2</label>
+    <select class="form-control" formControlName="nationality_2">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.countries">
+        <option *ngFor="let item of information.countries" [value]="item.code">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Nationality 3</label>
+    <select class="form-control" formControlName="nationality_3">
+      <option value="" selected="selected">---------</option>
+      <ng-template [ngIf]="information.countries">
+        <option *ngFor="let item of information.countries" [value]="item.code">
+          {{item.name}}
+        </option>
+      </ng-template>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Passport number 1</label>
+    <input type="text" class="form-control" placeholder="" formControlName="passport_number_1">
+  </div>
+
+  <div class="form-group">
+    <label>Passport number 2</label>
+    <input type="text" class="form-control" placeholder="" formControlName="passport_number_2">
+  </div>
+
+  <div class="form-group">
+    <label>Passport number 3</label>
+    <input type="text" class="form-control" placeholder="" formControlName="passport_number_3">
+  </div>
+</form>

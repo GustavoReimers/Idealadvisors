@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+  <p>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+    <span class="text-primary">Upload File</span>
+  </p>
+  <div class="form-group">
+    <label for="fileType">File Type</label>
+    <select class="form-control" name="file_type" formControlName="file_type">
+      <option value="" selected="selected">---------</option>
+      <option value="1">Call Memo</option>
+      <option value="2">Picture</option>
+      <option value="3">Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="DOD">Date of Data</label>
+    <input type="date" id="DOD" class="form-control" name="date_of_data" formControlName="date_of_data">
+  </div>
+  <div class="form-group">
+    <label for="fileCont">File Content</label>
+    <input type="file" id="fileCont" class="form-control" name="file_content" formControlName="file_content">
+  </div>
+</form>

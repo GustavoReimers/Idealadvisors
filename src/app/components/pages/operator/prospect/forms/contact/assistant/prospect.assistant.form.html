@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>Name(s)</label>
+    <input type="text" class="form-control" placeholder="" name="personal_assistant_names" formControlName="personal_assistant_names">
+  </div>
+
+  <div class="form-group">
+    <label>Surname</label>
+    <input type="text" class="form-control" placeholder="" name="personal_assistant_surname" formControlName="personal_assistant_surname">
+  </div>
+
+  <div class="form-group">
+    <label>Tel</label>
+    <div class="phone-row">
+      <span class="mr-1">+</span>
+      <input type="text" class="form-control mr-1" placeholder="" name="personal_assistant_tel_country_code" formControlName="personal_assistant_tel_country_code">
+      <input type="text" class="form-control mr-1" placeholder="" name="personal_assistant_tel_area_code" formControlName="personal_assistant_tel_area_code">
+      <input type="text" class="form-control" placeholder="" name="personal_assistant_tel_number" formControlName="personal_assistant_tel_number">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Fax</label>
+    <div class="phone-row">
+      <span class="mr-1">+</span>
+      <input type="text" class="form-control mr-1" placeholder="" name="personal_assistant_fax_country_code" formControlName="personal_assistant_fax_country_code">
+      <input type="text" class="form-control mr-1" placeholder="" name="personal_assistant_fax_area_code" formControlName="personal_assistant_fax_area_code">
+      <input type="text" class="form-control" placeholder="" name="personal_assistant_fax_number" formControlName="personal_assistant_fax_number">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="" name="email" formControlName="email">
+  </div>
+
+</form>

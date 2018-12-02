@@ -1,0 +1,37 @@
+<!-- Content  -->
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h3>Contacts</h3>
+      <p><a [routerLink]="['/app/contact/create']">Create New Contact</a>, <a [routerLink]="['/app/contact/list']">list contacts</a> or <a [routerLink]="['/app/contact/send-mail']">Send mail</a> </p>
+      <h4>List of {{contactList.length}} contacts</h4>
+      <br>
+      <table class="table table-bordered table-responsive">
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Primary Email</th>
+          <th>myIdeal Email</th>
+          <th>Names</th>
+          <th>Surname</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contact of contactList; let i = index">
+          <td>{{i + 1}}</td>
+          <td><a [routerLink]="['/app/contact/update/' + contact.id]">{{contact.primary_email}}</a></td>
+          <td>
+            {{contact.generated_internal_email}}
+          </td>
+          <td>{{contact.first_name}}</td>
+          <td>{{contact.last_name}}</td>
+        </tr>
+
+        <tr *ngIf="loading"><td colspan="5" class="text-center"><i class="fa fa-spinner fa-spin fa-fw fa-2x"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
